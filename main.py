@@ -3,7 +3,7 @@
 ### jinja2 template engine 
 
 '''
-{%...%} for statements
+{%...%} conditions, for loops
 {{ }} expression to print output
 {#...#} for comments
  
@@ -25,21 +25,23 @@ def welcome():
 @app.route('/sucess/<int:score>')
 
 
-def success(score):
-    
+def success(score):    
     
     
     res=""
+    
     if score>=50:
+        
         
         res="PASS"
         
+        
     else:
-        
         res="FAIL"
-        
     
-    return render_template('result.html',result=res)
+    
+    exp={'score ':score,'res ': res}
+    return render_template('result.html',result=exp)
     
     
 
